@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Village Search</title>
+
+    <style>
+    body {
+        font-family: Arial;
+        margin: 40px;
+    }
+    h2 {
+        color: #333;
+    }
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+    th, td {
+        padding: 8px;
+        text-align: left;
+    }
+    th {
+        background-color: #4CAF50;
+        color: white;
+    }
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+    button {
+        padding: 6px 12px;
+        background: green;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+    input, select {
+        padding: 6px;
+        margin-right: 10px;
+    }
+    </style>
+
+</head>
+<body>
+
+<h2>Search Location Data</h2>
+
+<form method="POST">
+    <select name="type">
+        <option value="state">State</option>
+        <option value="district">District</option>
+        <option value="village">Village</option>
+    </select>
+
+    <input type="text" name="value" placeholder="Enter name" required>
+    <button type="submit">Search</button>
+</form>
+
+<hr>
+
+<table border="1">
+<tr>
+    <th>State</th>
+    <th>District</th>
+    <th>Sub-District</th>
+    <th>Village</th>
+</tr>
+
+{% for row in data %}
+<tr>
+    <td>{{ row[1] }}</td>
+    <td>{{ row[3] }}</td>
+    <td>{{ row[5] }}</td>
+    <td>{{ row[7] }}</td>
+</tr>
+{% endfor %}
+
+</table>
+
+</body>
+</html>
